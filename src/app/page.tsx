@@ -16,7 +16,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <HeroSection />
+      <HeroSection stats={stats} />
       <LiveStatsBar stats={stats} />
       <FeaturedProjects projects={featured} />
       <HowItWorks />

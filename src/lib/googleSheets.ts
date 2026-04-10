@@ -39,9 +39,14 @@ async function fetchCsv(sheetName: string): Promise<Record<string, string>[] | n
   }
 
   try {
-    const res = await fetch(csvUrl(sheetName), {
-      next: { revalidate: REVALIDATE_SECONDS },
-    });
+    // Dev: no-store so sheet edits are visible immediately on every request.
+    // Production: ISR revalidates every REVALIDATE_SECONDS.
+    const fetchOptions: RequestInit =
+      process.env.NODE_ENV === "development"
+        ? { cache: "no-store" }
+        : { next: { revalidate: REVALIDATE_SECONDS } };
+
+    const res = await fetch(csvUrl(sheetName), fetchOptions);
 
     if (!res.ok) {
       console.warn(`[sheets] Failed to fetch sheet "${sheetName}": HTTP ${res.status}`);

@@ -2,9 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Heart } from "lucide-react";
-import { staggerContainer, fadeInUp, scaleIn } from "@/lib/animations";
+import { staggerContainer, fadeInUp } from "@/lib/animations";
+import { GlobalStats } from "@/types/stats";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  stats: GlobalStats;
+}
+
+export function HeroSection({ stats }: HeroSectionProps) {
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
       {/* Background */}
@@ -86,10 +91,10 @@ export function HeroSection() {
             className="mt-16 flex flex-wrap items-center justify-center gap-6"
           >
             {[
-              { value: "£156K+", label: "Raised" },
-              { value: "1,600+", label: "Donors" },
-              { value: "5", label: "Active Projects" },
-              { value: "12", label: "Countries" },
+              { value: `${stats.currency === "GBP" ? "£" : stats.currency}${(stats.totalRaised / 1000).toFixed(0)}K+`, label: "Raised" },
+              { value: `${stats.totalDonors.toLocaleString()}+`, label: "Donors" },
+              { value: `${stats.activeProjects}`, label: "Active Projects" },
+              { value: `${stats.countriesReached}`, label: "Countries" },
             ].map((stat) => (
               <div
                 key={stat.label}
