@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import {
   ArrowLeft,
   Users,
@@ -9,24 +8,26 @@ import {
   Heart,
   CheckCircle,
 } from "lucide-react";
-import { projects, getProjectBySlug, categoryLabels } from "@/data/projects";
+import { getProjects, getProjectBySlug, categoryLabels } from "@/data/projects";
 import { Badge } from "@/components/ui/Badge";
 import { ProgressBar } from "@/components/ui/ProgressBar";
 import { formatCurrency, getProgressPercent } from "@/lib/utils";
 import { URGENCY_COLORS, URGENCY_LABELS } from "@/lib/constants";
 import { ImpactStatsSection } from "@/components/projects/ImpactStatsSection";
+export const revalidate = 300;
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
+  const projects = await getProjects();
   return projects.map((p) => ({ slug: p.slug }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
     title: `${project.title} — HopeRaise`,
@@ -36,7 +37,7 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const project = await getProjectBySlug(slug);
   if (!project) notFound();
 
   const percent = getProgressPercent(project.raisedAmount, project.goalAmount);
@@ -87,14 +88,9 @@ export default async function ProjectDetailPage({ params }: Props) {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-3">
           {/* Main content */}
           <div className="space-y-10 lg:col-span-2">
-            {/* Why */}
             <ContentSection heading={project.why.heading} body={project.why.body} />
-            {/* How */}
             <ContentSection heading={project.how.heading} body={project.how.body} />
-            {/* Impact */}
             <ContentSection heading={project.impact.heading} body={project.impact.body} />
-
-            {/* Impact Stats */}
             <ImpactStatsSection stats={project.impactStats} />
           </div>
 

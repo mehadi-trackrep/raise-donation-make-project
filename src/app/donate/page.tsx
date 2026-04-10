@@ -1,6 +1,7 @@
 import { Heart, ShieldCheck, Zap, Info } from "lucide-react";
-import { bankDetails } from "@/data/bankDetails";
+import { getBankDetails } from "@/data/bankDetails";
 import { BankDetailsCard } from "@/components/donate/BankDetailsCard";
+export const revalidate = 300;
 
 export const metadata = {
   title: "Donate — HopeRaise",
@@ -8,7 +9,9 @@ export const metadata = {
     "Send a direct bank transfer donation. No fees, no middlemen — 100% of your money reaches the cause.",
 };
 
-export default function DonatePage() {
+export default async function DonatePage() {
+  const bankDetails = await getBankDetails();
+
   return (
     <div className="min-h-screen bg-gray-50 pt-16">
       {/* Page Hero */}

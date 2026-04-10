@@ -1,6 +1,7 @@
 import { BankDetails } from "@/types/bank";
+import { fetchBankDetails } from "@/lib/googleSheets";
 
-export const bankDetails: BankDetails = {
+const fallbackBankDetails: BankDetails = {
   lastUpdated: "2025-01-01",
   accounts: [
     {
@@ -46,3 +47,8 @@ export const bankDetails: BankDetails = {
     },
   ],
 };
+
+export async function getBankDetails(): Promise<BankDetails> {
+  const sheetData = await fetchBankDetails();
+  return sheetData ?? fallbackBankDetails;
+}

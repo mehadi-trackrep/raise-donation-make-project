@@ -17,6 +17,10 @@
 /.next/
 /out/
 
+prompts.txt
+prompt.txt
+prompts/
+
 # production
 /build
 

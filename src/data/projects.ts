@@ -1,4 +1,5 @@
 import { Project } from "@/types/project";
+import { fetchProjects } from "@/lib/googleSheets";
 
 export const projects: Project[] = [
   {
@@ -198,12 +199,24 @@ export const projects: Project[] = [
   },
 ];
 
-export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug);
+// ---------------------------------------------------------------------------
+// Async accessors — sheet-first, static fallback
+// ---------------------------------------------------------------------------
+
+/** Returns all projects from Google Sheets, or the static list if not configured. */
+export async function getProjects(): Promise<Project[]> {
+  const sheetProjects = await fetchProjects();
+  return sheetProjects ?? projects;
 }
 
-export function getFeaturedProjects(): Project[] {
-  return projects.filter((p) => p.featured);
+export async function getProjectBySlug(slug: string): Promise<Project | undefined> {
+  const all = await getProjects();
+  return all.find((p) => p.slug === slug);
+}
+
+export async function getFeaturedProjects(): Promise<Project[]> {
+  const all = await getProjects();
+  return all.filter((p) => p.featured);
 }
 
 export const categoryLabels: Record<string, string> = {

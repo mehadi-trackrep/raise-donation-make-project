@@ -1,16 +1,18 @@
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProjectGrid } from "@/components/projects/ProjectGrid";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/data/projects";
+export const revalidate = 300;
 
 export const metadata = {
   title: "All Projects — HopeRaise",
   description: "Browse all active welfare projects and fund the cause that matters most to you.",
 };
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+
   return (
     <div className="min-h-screen pt-24 pb-24">
-      {/* Page hero */}
       <div className="bg-gradient-to-br from-emerald-900 to-emerald-800 py-20 text-center">
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-emerald-300">
           Active Campaigns
@@ -24,7 +26,6 @@ export default function ProjectsPage() {
         </p>
       </div>
 
-      {/* Projects grid */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <ProjectGrid projects={projects} />
       </div>

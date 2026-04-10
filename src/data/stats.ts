@@ -1,6 +1,7 @@
 import { GlobalStats } from "@/types/stats";
+import { fetchStats } from "@/lib/googleSheets";
 
-export const globalStats: GlobalStats = {
+const fallbackStats: GlobalStats = {
   totalRaised: 156050,
   currency: "GBP",
   totalDonors: 1607,
@@ -8,3 +9,8 @@ export const globalStats: GlobalStats = {
   completedProjects: 3,
   countriesReached: 12,
 };
+
+export async function getGlobalStats(): Promise<GlobalStats> {
+  const sheetStats = await fetchStats();
+  return sheetStats ?? fallbackStats;
+}
