@@ -1,0 +1,10 @@
+import { GlobalStats } from "@/types/stats";
+
+export const globalStats: GlobalStats = {
+  totalRaised: 156050,
+  currency: "GBP",
+  totalDonors: 1607,
+  activeProjects: 5,
+  completedProjects: 3,
+  countriesReached: 12,
+};
