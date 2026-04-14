@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Props) {
   const project = await getProjectBySlug(slug);
   if (!project) return {};
   return {
-    title: `${project.title} — HopeRaise`,
+    title: `${project.title} — HopeRaise BD`,
     description: project.tagline,
   };
 }

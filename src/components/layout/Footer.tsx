@@ -48,14 +48,14 @@ export function Footer() {
               Get In Touch
             </h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li>info@hoperaise.org</li>
-              <li>+44 (0) 20 1234 5678</li>
-              <li>123 Charity Lane, London, EC1A 1BB</li>
+              <li>mstechy49@gmail.com</li>
+              <li>+880 1330-528534</li>
+              <li>Ati Bazar, Keraniganj, Dhaka 1312</li>
             </ul>
             <p className="mt-6 text-xs text-gray-500">
-              Registered Charity No: 1234567
+              Registered Charity No: BD-***-2026-****
               <br />
-              Company No: 09876543 (England & Wales)
+              Bangladesh Charity Firm
             </p>
           </div>
         </div>

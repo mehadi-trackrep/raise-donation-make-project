@@ -12,7 +12,7 @@ interface ProjectGridProps {
   projects: Project[];
 }
 
-const categories = ["all", "food-bank", "education", "medical", "shelter", "orphan-support"] as const;
+const categories = ["all", "food-bank", "education", "medical", "shelter", "orphan-support", "solar-setup"] as const;
 
 export function ProjectGrid({ projects }: ProjectGridProps) {
   const [activeCategory, setActiveCategory] = useState<string>("all");

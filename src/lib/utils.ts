@@ -5,7 +5,13 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function formatCurrency(amount: number, currency = "GBP"): string {
+export function formatCurrency(amount: number, currency = "BDT"): string {
+  if (currency === "BDT") {
+    return `Tk ${new Intl.NumberFormat("en-BD", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount)}`;
+  }
   return new Intl.NumberFormat("en-GB", {
     style: "currency",
     currency,

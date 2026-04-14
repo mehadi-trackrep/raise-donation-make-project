@@ -3,7 +3,7 @@ import { fetchStats } from "@/lib/googleSheets";
 
 const fallbackStats: GlobalStats = {
   totalRaised: 156050,
-  currency: "GBP",
+  currency: "BDT",
   totalDonors: 1607,
   activeProjects: 5,
   completedProjects: 3,

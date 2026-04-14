@@ -15,7 +15,7 @@ const values = [
   {
     icon: Shield,
     title: "Full Transparency",
-    description: "We publish our accounts, track every pound donated, and ensure our funders can see exactly where their money goes.",
+    description: "We publish our accounts, track every taka donated, and ensure our funders can see exactly where their money goes.",
     color: "bg-blue-100 text-blue-600",
   },
   {
@@ -33,10 +33,10 @@ const values = [
 ];
 
 const team = [
-  { name: "Sarah Okonkwo", role: "Executive Director", initials: "SO" },
-  { name: "James Patel", role: "Head of Operations", initials: "JP" },
-  { name: "Fatima Al-Rashid", role: "Project Coordinator", initials: "FA" },
-  { name: "David Chen", role: "Finance & Compliance", initials: "DC" },
+  { name: "Md. Mehadi Hasan", role: "Executive Director", initials: "MH" },
+  { name: "Md. Mohinur Rahman", role: "Finance & Compliance", initials: "MR" },
+  { name: "Md. Amirul Islam", role: "Head of Operations", initials: "AI" },
+  { name: "Shanjana Karim Ema", role: "Project Coordinator", initials: "SK" }
 ];
 
 export default function AboutPage() {
@@ -45,7 +45,7 @@ export default function AboutPage() {
       {/* Hero */}
       <div className="bg-gradient-to-br from-emerald-900 to-emerald-800 py-20 text-center">
         <h1 className="font-serif text-4xl font-bold text-white md:text-5xl">
-          About HopeRaise
+          About HopeRaise BD
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-emerald-200">
           We are a grassroots charity founded in 2020 by a group of community volunteers who
@@ -71,7 +71,7 @@ export default function AboutPage() {
               <p className="mt-3 text-base leading-relaxed text-gray-600">
                 To connect compassionate donors directly with community welfare projects
                 that address root causes of poverty, inequality, and social exclusion —
-                ensuring every pound donated creates maximum, measurable impact.
+                ensuring every taka donated creates maximum, measurable impact.
               </p>
             </motion.div>
             <motion.div
@@ -163,12 +163,12 @@ export default function AboutPage() {
       {/* Registration */}
       <section className="bg-emerald-900 py-12 text-center text-sm text-emerald-300">
         <div className="mx-auto max-w-2xl px-4">
-          <p className="font-semibold text-white">HopeRaise</p>
+          <p className="font-semibold text-white">HopeRaise BD</p>
           <p className="mt-1">
-            Registered Charity No: 1234567 &bull; Company No: 09876543 (England & Wales)
+            Registered Charity No: BD-***-2026-**** &bull; Reg: Bangladesh Charity Firm
           </p>
           <p className="mt-1">
-            123 Charity Lane, London, EC1A 1BB &bull; info@hoperaise.org
+            Ati Bazar, Keraniganj, Dhaka 1312 &bull; mstechy49@gmail.com
           </p>
         </div>
       </section>

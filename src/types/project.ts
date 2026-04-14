@@ -3,7 +3,8 @@ export type ProjectCategory =
   | "education"
   | "medical"
   | "shelter"
-  | "orphan-support";
+  | "orphan-support"
+  | "solar-setup";
 
 export type ProjectStatus = "active" | "completed" | "upcoming";
 

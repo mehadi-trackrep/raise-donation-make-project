@@ -16,7 +16,7 @@ export const projects: Project[] = [
     ],
     goalAmount: 50000,
     raisedAmount: 34200,
-    currency: "GBP",
+    currency: "BDT",
     donorCount: 412,
     urgency: "high",
     featured: true,
@@ -24,7 +24,7 @@ export const projects: Project[] = [
     endDate: "2025-06-30",
     why: {
       heading: "Why This Matters",
-      body: "Over 8.4 million people in the UK are living in food poverty — unable to afford a healthy, balanced diet. In our borough alone, more than 1,200 families rely on emergency food parcels every week. Rising energy costs, stagnant wages, and post-pandemic economic strain have pushed vulnerable households to the breaking point. Children are going to school hungry, elderly residents are skipping meals, and working families are choosing between heating and eating. The need has never been more urgent.",
+      body: "Over 26 million people in Bangladesh are living in food poverty — unable to afford a healthy, balanced diet. In our area alone, more than 1,200 families rely on emergency food parcels every week. Rising prices, stagnant wages, and economic strain have pushed vulnerable households to the breaking point. Children are going to school hungry, elderly residents are skipping meals, and working families are choosing between rent and eating. The need has never been more urgent.",
     },
     how: {
       heading: "How We Help",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     },
     impact: {
       heading: "Our Impact So Far",
-      body: "Since launching in January 2024, we've distributed over 14,800 food parcels to 3,200 unique individuals. Our community kitchen has served 6,400 hot meals. We've helped 180 families access benefits they were previously unaware of, recovering an average of £1,200 per year in unclaimed support. Last winter, we ensured not a single referred family went without food for three consecutive days.",
+      body: "Since launching in January 2024, we've distributed over 14,800 food parcels to 3,200 unique individuals. Our community kitchen has served 6,400 hot meals. We've helped 180 families access support they were previously unaware of, recovering an average of Tk 15,000 per year in unclaimed aid. Last winter, we ensured not a single referred family went without food for three consecutive days.",
     },
     impactStats: [
       { label: "Food Parcels Given", value: "14,800+", icon: "Package" },
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     ],
     goalAmount: 30000,
     raisedAmount: 18750,
-    currency: "GBP",
+    currency: "BDT",
     donorCount: 287,
     urgency: "medium",
     featured: true,
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     endDate: "2025-08-31",
     why: {
       heading: "Why This Matters",
-      body: "In the UK, children from the most deprived backgrounds are 18 months behind their more affluent peers by age 11. Across communities we serve, 1 in 3 children lack basic school supplies, reliable internet access, or a quiet place to study at home. Many talented young people drop out before completing GCSEs — not due to lack of ability, but lack of support. This educational gap has lifelong consequences: lower earnings, poorer health outcomes, and reduced social mobility. We believe no postcode should determine a child's future.",
+      body: "In Bangladesh, children from the most deprived backgrounds are significantly behind their more affluent peers by age 11. Across communities we serve, 1 in 3 children lack basic school supplies, reliable internet access, or a quiet place to study at home. Many talented young people drop out before completing their SSC — not due to lack of ability, but lack of support. This educational gap has lifelong consequences: lower earnings, poorer health outcomes, and reduced social mobility. We believe no district should determine a child's future.",
     },
     how: {
       heading: "How We Help",
@@ -94,7 +94,7 @@ export const projects: Project[] = [
     ],
     goalAmount: 80000,
     raisedAmount: 71600,
-    currency: "GBP",
+    currency: "BDT",
     donorCount: 634,
     urgency: "high",
     featured: true,
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     endDate: "2025-03-31",
     why: {
       heading: "Why This Matters",
-      body: "NHS waiting lists have reached a record 7.6 million people. For those living in poverty, a delayed diagnosis or untreated condition often spirals into a life-altering crisis. We work with individuals who face impossible choices: pay rent or buy prescribed medication, work through chronic pain or risk losing their job. Dental care, mental health services, and specialist consultations are entirely out of reach for many. One missed prescription or untreated infection can cascade into hospitalisation, job loss, and homelessness.",
+      body: "Millions in Bangladesh lack access to adequate healthcare. For those living in poverty, a delayed diagnosis or untreated condition often spirals into a life-altering crisis. We work with individuals who face impossible choices: pay rent or buy prescribed medication, work through chronic pain or risk losing their job. Dental care, mental health services, and specialist consultations are entirely out of reach for many. One missed prescription or untreated infection can cascade into hospitalisation, job loss, and homelessness.",
     },
     how: {
       heading: "How We Help",
@@ -133,7 +133,7 @@ export const projects: Project[] = [
     ],
     goalAmount: 45000,
     raisedAmount: 22500,
-    currency: "GBP",
+    currency: "BDT",
     donorCount: 198,
     urgency: "medium",
     featured: true,
@@ -141,7 +141,7 @@ export const projects: Project[] = [
     endDate: "2025-12-31",
     why: {
       heading: "Why This Matters",
-      body: "Rough sleeping in England has risen for the fourth consecutive year. Beyond those sleeping on streets, hundreds of thousands live in temporary accommodation — overcrowded B&Bs, sofa-surfing between friends, or unsafe houses with mould, damp, and broken heating. Women fleeing domestic abuse, veterans transitioning from service, and care leavers aged out of the system at 18 are disproportionately affected. For many, the lack of a stable address is an invisible barrier to employment, healthcare, and benefits.",
+      body: "Housing insecurity in Bangladesh has risen significantly in recent years. Beyond those sleeping on streets, hundreds of thousands live in temporary accommodation — overcrowded shelters, slum housing, or unsafe structures with poor sanitation. Women fleeing domestic abuse, displaced families, and young people without family support are disproportionately affected. For many, the lack of a stable address is an invisible barrier to employment, healthcare, and social support.",
     },
     how: {
       heading: "How We Help",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
     ],
     goalAmount: 60000,
     raisedAmount: 9000,
-    currency: "GBP",
+    currency: "BDT",
     donorCount: 76,
     urgency: "low",
     featured: false,
@@ -225,5 +225,6 @@ export const categoryLabels: Record<string, string> = {
   medical: "Medical Aid",
   shelter: "Shelter",
   "orphan-support": "Orphan Support",
+  "solar-setup": "Solar Setup",
   all: "All Projects",
 };

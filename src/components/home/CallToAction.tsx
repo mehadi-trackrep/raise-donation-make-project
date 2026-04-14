@@ -36,7 +36,7 @@ export function CallToAction() {
             variants={fadeInUp}
             className="mx-auto mt-5 max-w-xl text-lg text-emerald-200"
           >
-            Whether it&apos;s £5 or £5,000 — your donation goes directly to
+            Whether it&apos;s Tk 100 or Tk 10,000 — your donation goes directly to
             those who need it most. No fees, no barriers, just impact.
           </motion.p>
 

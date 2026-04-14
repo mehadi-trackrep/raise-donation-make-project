@@ -40,7 +40,7 @@ export function HeroSection({ stats }: HeroSectionProps) {
           <motion.div variants={fadeInUp} className="mb-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/40 bg-amber-400/10 px-4 py-1.5 text-sm font-semibold text-amber-300 backdrop-blur-sm">
               <Heart size={14} className="fill-amber-300 text-amber-300" />
-              Empowering Communities Across the UK
+              Empowering Communities Across Bangladesh
             </span>
           </motion.div>
 
@@ -91,7 +91,7 @@ export function HeroSection({ stats }: HeroSectionProps) {
             className="mt-16 flex flex-wrap items-center justify-center gap-6"
           >
             {[
-              { value: `${stats.currency === "GBP" ? "£" : stats.currency}${(stats.totalRaised / 1000).toFixed(0)}K+`, label: "Raised" },
+              { value: `Tk ${(stats.totalRaised / 1000).toFixed(0)}K+`, label: "Raised" },
               { value: `${stats.totalDonors.toLocaleString()}+`, label: "Donors" },
               { value: `${stats.activeProjects}`, label: "Active Projects" },
               { value: `${stats.countriesReached}`, label: "Countries" },

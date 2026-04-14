@@ -14,13 +14,15 @@ export function Navbar() {
   const scrolled = useScrollDirection();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const isHome = pathname === "/";
+  const solidBg = !isHome || scrolled;
 
   return (
     <>
       <motion.header
         className={cn(
           "fixed top-0 z-50 w-full transition-all duration-300",
-          scrolled
+          solidBg
             ? "bg-white/95 shadow-sm backdrop-blur-md"
             : "bg-transparent"
         )}
@@ -37,7 +39,7 @@ export function Navbar() {
             <span
               className={cn(
                 "font-serif text-xl font-bold transition-colors",
-                scrolled ? "text-gray-900" : "text-white"
+                solidBg ? "text-gray-900" : "text-white"
               )}
             >
               {SITE_NAME}
@@ -54,7 +56,7 @@ export function Navbar() {
                   "rounded-full px-4 py-2 text-sm font-medium transition-all",
                   pathname === link.href
                     ? "bg-emerald-700 text-white"
-                    : scrolled
+                    : solidBg
                     ? "text-gray-700 hover:bg-gray-100"
                     : "text-white/90 hover:bg-white/20"
                 )}
@@ -75,7 +77,7 @@ export function Navbar() {
           <button
             className={cn(
               "flex items-center justify-center rounded-full p-2 transition-colors md:hidden",
-              scrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/20"
+              solidBg ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/20"
             )}
             onClick={() => setMobileOpen(true)}
             aria-label="Open menu"

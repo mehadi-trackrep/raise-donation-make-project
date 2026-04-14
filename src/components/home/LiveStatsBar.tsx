@@ -15,7 +15,7 @@ export function LiveStatsBar({ stats }: LiveStatsBarProps) {
     {
       icon: TrendingUp,
       value: stats.totalRaised,
-      prefix: "£",
+      prefix: "Tk ",
       suffix: "",
       label: "Total Raised",
       color: "text-emerald-600",

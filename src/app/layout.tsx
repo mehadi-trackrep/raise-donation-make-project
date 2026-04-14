@@ -17,13 +17,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "HopeRaise — Empowering Communities, One Donation at a Time",
+  title: "HopeRaise BD — Empowering Bangladesh's Communities, One Donation at a Time",
   description:
-    "Fund real welfare projects that feed families, educate children, deliver healthcare, and build safe homes. Direct bank transfers, zero platform fees.",
-  keywords: "charity, donation, welfare, food bank, education, medical aid, shelter, orphan support",
+    "Fund real welfare projects in Bangladesh that feed families, educate children, deliver healthcare, and build safe homes. Direct bank transfers, zero platform fees.",
+  keywords: "charity, donation, welfare, food bank, education, medical aid, shelter, orphan support, Bangladesh",
   manifest: "/manifest.json",
   openGraph: {
-    title: "HopeRaise — Empowering Communities",
+    title: "HopeRaise BD — Empowering Bangladesh's Communities",
     description: "Fund real welfare projects that change lives.",
     type: "website",
   },

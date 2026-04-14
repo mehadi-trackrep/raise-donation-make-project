@@ -4,7 +4,7 @@ import { BankDetailsCard } from "@/components/donate/BankDetailsCard";
 export const revalidate = 300;
 
 export const metadata = {
-  title: "Donate — HopeRaise",
+  title: "Donate — HopeRaise BD",
   description:
     "Send a direct bank transfer donation. No fees, no middlemen — 100% of your money reaches the cause.",
 };
@@ -23,7 +23,7 @@ export default async function DonatePage() {
           Make a Donation
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-base text-emerald-200">
-          Every pound counts. Transfer directly to our bank accounts — no
+          Every taka counts. Transfer directly to our bank accounts — no
           platform fees, no deductions. Your full donation reaches those who
           need it most.
         </p>
@@ -33,7 +33,7 @@ export default async function DonatePage() {
       <div className="border-b border-gray-200 bg-white py-6">
         <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-8 px-4">
           {[
-            { icon: ShieldCheck, text: "Registered Charity No: 1234567", color: "text-emerald-600" },
+            { icon: ShieldCheck, text: "Registered Charity No: *******", color: "text-emerald-600" },
             { icon: Zap, text: "100% Goes to the Cause", color: "text-amber-600" },
             { icon: Info, text: "Bank Transfer — No Fees", color: "text-blue-600" },
           ].map((item) => (
@@ -53,21 +53,21 @@ export default async function DonatePage() {
             How to Donate
           </h2>
           <ol className="space-y-2.5 text-sm leading-relaxed text-gray-600">
-            <li className="flex gap-3">
+            <li className="flex items-start gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white">1</span>
-              Choose the bank account that matches your currency and location below.
+              <span>Choose the bank account below and set up your transfer.</span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex items-start gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white">2</span>
-              Set up a bank transfer from your online banking or branch using the details provided.
+              <span>Set up a bank transfer from your online banking or branch using the details provided.</span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex items-start gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white">3</span>
-              In the <strong>payment reference</strong>, write the project name (e.g. &ldquo;Community Food Bank&rdquo;) or &ldquo;GENERAL&rdquo; if donating to the overall fund.
+              <span>In the <strong>payment reference</strong>, write the project name (e.g. &ldquo;Community Food Bank&rdquo;) or &ldquo;GENERAL&rdquo; if donating to the overall fund.</span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex items-start gap-3">
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-xs font-bold text-white">4</span>
-              Optionally email us at <a href="mailto:donations@hoperaise.org" className="font-semibold text-emerald-700 hover:underline">donations@hoperaise.org</a> with your name and reference so we can send a thank-you receipt.
+              <span>Optionally email us at <a href="mailto:mstechy49@gmail.com" className="font-semibold text-emerald-700 hover:underline">mstechy49@gmail.com</a> with your name and reference so we can send a thank-you receipt.</span>
             </li>
           </ol>
         </div>
@@ -91,8 +91,8 @@ export default async function DonatePage() {
             year: "numeric",
           })}
           . If you experience any issues with your transfer, please contact us at{" "}
-          <a href="mailto:donations@hoperaise.org" className="font-semibold hover:underline">
-            donations@hoperaise.org
+          <a href="mailto:mstechy49@gmail.com" className="font-semibold hover:underline">
+            mstechy49@gmail.com
           </a>.
         </div>
       </div>

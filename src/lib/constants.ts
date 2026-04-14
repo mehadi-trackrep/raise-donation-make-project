@@ -1,5 +1,5 @@
 export const SITE_NAME = "HopeRaise";
-export const SITE_TAGLINE = "Empowering Communities, One Donation at a Time";
+export const SITE_TAGLINE = "Empowering Bangladesh's Communities, One Donation at a Time";
 
 export const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -14,6 +14,7 @@ export const CATEGORY_COLORS: Record<string, string> = {
   medical: "bg-red-100 text-red-700",
   shelter: "bg-purple-100 text-purple-700",
   "orphan-support": "bg-pink-100 text-pink-700",
+  "solar-setup": "bg-yellow-100 text-yellow-700",
 };
 
 export const URGENCY_COLORS: Record<string, string> = {

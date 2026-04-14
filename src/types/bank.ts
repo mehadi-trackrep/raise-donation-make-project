@@ -1,6 +1,7 @@
 export interface BankAccount {
   id: string;
   label: string;
+  type?: "bank" | "mobile";
   accountName: string;
   bankName: string;
   accountNumber: string;

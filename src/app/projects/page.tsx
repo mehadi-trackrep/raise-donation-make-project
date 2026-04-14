@@ -4,7 +4,7 @@ import { getProjects } from "@/data/projects";
 export const revalidate = 300;
 
 export const metadata = {
-  title: "All Projects — HopeRaise",
+  title: "All Projects — HopeRaise BD",
   description: "Browse all active welfare projects and fund the cause that matters most to you.",
 };
 
