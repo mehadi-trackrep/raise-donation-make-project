@@ -15,6 +15,7 @@ import Papa from "papaparse";
 import { Project, ProjectCategory, ProjectStatus, UrgencyLevel, ProjectImpactStat } from "@/types/project";
 import { BankAccount, BankDetails } from "@/types/bank";
 import { GlobalStats } from "@/types/stats";
+import { normalizeImageUrl } from "@/lib/utils";
 
 // ---------------------------------------------------------------------------
 // Config
@@ -115,8 +116,8 @@ function rowToProject(row: Record<string, string>): Project | null {
     tagline: row.tagline ?? "",
     category: (row.category ?? "food-bank") as ProjectCategory,
     status: (row.status ?? "active") as ProjectStatus,
-    coverImage: row.coverImage ?? "",
-    galleryImages: toStringArray(row.galleryImages),
+    coverImage: normalizeImageUrl(row.coverImage ?? ""),
+    galleryImages: toStringArray(row.galleryImages).map(normalizeImageUrl),
     goalAmount: toNumber(row.goalAmount),
     raisedAmount: toNumber(row.raisedAmount),
     currency: row.currency || "GBP",

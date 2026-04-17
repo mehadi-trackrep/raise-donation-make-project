@@ -1,69 +1,89 @@
 # Actions Plan
 
-## Task: Fix "How to Donate" section mobile styles on `/donate` page
+## Task: Support Google Drive image URLs from Google Sheets data
 
 ---
 
-## Root Cause
+## Problem
 
-Each `<li>` in the steps list uses `flex gap-3` but is missing `items-start`.
+When a project's `coverImage` or `galleryImages` column in Google Sheets contains a
+Google Drive sharing URL (e.g. `https://drive.google.com/file/d/{ID}/view?usp=sharing`),
+the image fails to load because:
 
-Without `items-start`, flexbox defaults to `items-stretch` / centres the number badge vertically against the text block. On steps 3 and 4 — which have long multi-line text on narrow screens — the number badge floats to the vertical middle of the text instead of staying pinned to the first line. This causes the badge/text to look misaligned and "messed up".
-
-Additionally, the text content in each `<li>` is a bare anonymous text node (mixed with inline elements like `<strong>` and `<a>`) directly inside the flex container. Wrapping it in a `<span>` makes it a proper flex item and ensures clean wrapping on narrow screens.
-
----
-
-## Fix (single file: `src/app/donate/page.tsx`)
-
-**All 4 `<li>` elements in the "How to Donate" `<ol>`:**
-
-1. Add `items-start` to `flex gap-3` → `flex items-start gap-3`
-2. Wrap each step's text content in a `<span>` for clean flex-item text wrapping
+1. `next/image` only allows `images.unsplash.com` as a remote pattern (no Drive host allowed).
+2. Google Drive share URLs are not direct image URLs — they require conversion to the
+   CDN-served URL: `https://lh3.googleusercontent.com/d/{FILE_ID}`.
 
 ---
 
-## Changes
+## Supported Google Drive URL formats to detect
 
-**File: `src/app/donate/page.tsx`**
+| Input format | Example |
+|---|---|
+| File view link | `https://drive.google.com/file/d/ABC123/view?usp=sharing` |
+| Open link | `https://drive.google.com/open?id=ABC123` |
+| Already a direct uc link | `https://drive.google.com/uc?id=ABC123` |
 
-Step 1:
-```jsx
-<li className="flex items-start gap-3">
-  <span ...>1</span>
-  <span>Choose the bank account below and set up your transfer.</span>
-</li>
+All three should be converted to: `https://lh3.googleusercontent.com/d/ABC123`
+
+---
+
+## Changes (3 files)
+
+### 1. `src/lib/utils.ts` — add `normalizeImageUrl()`
+
+New helper function:
+- If the URL is a Google Drive URL, extract the file ID and return
+  `https://lh3.googleusercontent.com/d/{FILE_ID}`.
+- Otherwise return the URL unchanged.
+
+```ts
+export function normalizeImageUrl(url: string): string {
+  if (!url) return url;
+
+  // Match: /file/d/{ID}
+  const fileMatch = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
+  if (fileMatch) return `https://lh3.googleusercontent.com/d/${fileMatch[1]}`;
+
+  // Match: ?id={ID} or &id={ID}  (open or uc links)
+  if (url.includes("drive.google.com")) {
+    const idMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+    if (idMatch) return `https://lh3.googleusercontent.com/d/${idMatch[1]}`;
+  }
+
+  return url;
+}
 ```
 
-Step 2:
-```jsx
-<li className="flex items-start gap-3">
-  <span ...>2</span>
-  <span>Set up a bank transfer from your online banking or branch using the details provided.</span>
-</li>
+### 2. `src/lib/googleSheets.ts` — apply `normalizeImageUrl()` in `rowToProject()`
+
+- Import `normalizeImageUrl` from `@/lib/utils`
+- Apply it to `coverImage`
+- Apply it to each item in `galleryImages`
+
+```ts
+coverImage: normalizeImageUrl(row.coverImage ?? ""),
+galleryImages: toStringArray(row.galleryImages).map(normalizeImageUrl),
 ```
 
-Step 3:
-```jsx
-<li className="flex items-start gap-3">
-  <span ...>3</span>
-  <span>In the <strong>payment reference</strong>, write the project name (e.g. &ldquo;Community Food Bank&rdquo;) or &ldquo;GENERAL&rdquo; if donating to the overall fund.</span>
-</li>
-```
+### 3. `next.config.ts` — allow `lh3.googleusercontent.com`
 
-Step 4:
-```jsx
-<li className="flex items-start gap-3">
-  <span ...>4</span>
-  <span>Optionally email us at <a ...>donations@hoperaise.org</a> with your name and reference so we can send a thank-you receipt.</span>
-</li>
+Add a new entry to `images.remotePatterns`:
+
+```ts
+{
+  protocol: "https",
+  hostname: "lh3.googleusercontent.com",
+  pathname: "/**",
+},
 ```
 
 ---
 
 ## Summary
 
-| Issue | Fix |
-|-------|-----|
-| Number badge drifts to vertical centre of long text | `items-start` on all `<li>` |
-| Text node / inline elements not a clean flex item | Wrap text in `<span>` |
+| File | Change |
+|---|---|
+| `src/lib/utils.ts` | Add `normalizeImageUrl()` |
+| `src/lib/googleSheets.ts` | Apply `normalizeImageUrl` to `coverImage` + `galleryImages` in `rowToProject()` |
+| `next.config.ts` | Allow `lh3.googleusercontent.com` as an image remote pattern |
